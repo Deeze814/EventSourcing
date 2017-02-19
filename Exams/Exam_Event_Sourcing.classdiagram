@@ -5,12 +5,12 @@
       <elementDefinition Id="7509f6ed-ec29-4a28-8948-db9d49e252c1" />
       <body>PassEvent.process()
 {
-  ExamResult.recordPass(this);
+  ExamInstance.recordPass(this);
 }</body>
     </comment>
     <comment Id="5f73a41a-3942-400e-aa89-cf512b287600">
       <elementDefinition Id="de853a63-b750-4ead-9ced-78a23405ef2f" />
-      <body>ExamResult.recordPass(PassEvent e)
+      <body>ExamInstance.recordPass(PassEvent e)
 {
    grade = e.grade;
    
