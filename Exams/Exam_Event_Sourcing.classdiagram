@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="977e7834-07a0-4e34-8c5c-b99246419fa4" name="Exam_Event_Sourcing" linkedPackageId="5b2c9202-6155-4bdf-9fe6-7b0361dbedef" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="db2e9431-50e6-4725-87a4-bffe00b46434">
+      <elementDefinition Id="7509f6ed-ec29-4a28-8948-db9d49e252c1" />
+      <body>PassEvent.process()
+{
+  ExamResult.recordPass(this);
+}</body>
+    </comment>
+    <comment Id="5f73a41a-3942-400e-aa89-cf512b287600">
+      <elementDefinition Id="de853a63-b750-4ead-9ced-78a23405ef2f" />
+      <body>ExamResult.recordPass(PassEvent e)
+{
+   grade = e.grade;
+   
+}</body>
+    </comment>
+    <comment Id="68aa3bcf-df90-4d07-ae6a-ca56934e910b">
+      <elementDefinition Id="1ddec704-679b-436d-95ac-d2163333d2d8" />
+      <body>https://martinfowler.com/eaaDev/EventSourcing.html</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="a75c6380-0f1c-4b97-b10c-68b8877f0ae8">
+      <profileInstance Id="b366625e-5525-41e4-800a-733ce9a1ae83" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="e8d7bb1f-8dd0-43f7-b598-a63cd1efadd9">
+      <profileInstance Id="f7a20e68-05ed-443e-8944-de43764fc666" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="137f1d00-ef1f-4d5c-b85f-9454b3c0b1b8" name="ExaminationEvent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2d59a950-1a37-4eb7-b76c-32aad31e72bc" />
+        <suppliersInternal>
+          <dependency Id="af8b5955-f5d6-42f6-9ebf-fd0db56f50db">
+            <classMoniker Id="c3c2f3dc-fcea-4f9e-a172-b98e09434852" LastKnownName="ExamInstance" />
+            <elementDefinition Id="d13b84f0-a160-4e8b-9271-07da6247a047" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="d47f1c41-d90c-41b4-b4be-d82e25fe8622" name="occuredOn" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7f8b9efb-b0fb-4ad0-84ae-6811e09067d2" />
+          </property>
+          <property Id="11c1c4ee-5520-4d9d-a169-7faa7cb09728" name="recordedOn" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="25a06d6d-3814-4f44-8b8e-16e994a3d5ff" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e2d20f4c-b2b6-473e-92ec-a3ebbdae8f68" name="PassEvent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0f29c7f8-6f49-4547-8266-a57dbfe01e81" />
+        <generalsInternal>
+          <generalization Id="09ca05fb-b6a1-4034-b741-9b723b67debc" isSubstitutable="false">
+            <classMoniker Id="137f1d00-ef1f-4d5c-b85f-9454b3c0b1b8" LastKnownName="ExaminationEvent" />
+            <elementDefinition Id="c827fcde-59e7-4977-9de4-f681391183c7" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="eea96402-fe17-460d-9204-89cebce8d918" name="grade" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="24cadf4e-c5c4-4718-be98-71cd0eee57ce" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="373924ef-be87-494e-9a83-5b68d177693f" name="process" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="58b8d55a-b9b0-44de-b2ac-93a7dc313a0b" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8765ffcd-5d81-46fa-8d84-eaef31e07b05" name="FailEvent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="48812d76-848a-4aa9-8b94-e82e08ae778b" />
+        <generalsInternal>
+          <generalization Id="73ba92fc-8ffc-436f-9aae-f23bb2300ee3" isSubstitutable="false">
+            <classMoniker Id="137f1d00-ef1f-4d5c-b85f-9454b3c0b1b8" LastKnownName="ExaminationEvent" />
+            <elementDefinition Id="13d92d4b-20f3-4dc3-8a39-0d1e31ea53ee" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="9438d727-a7ad-410f-8cc1-e7d5c14bc9e4" name="grade" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="379cc6be-6afe-4890-bfc4-5439eb850df0" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="0bdb020b-ed7a-4867-866f-7e874ce61653" name="process" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="62da39fd-2496-48a3-8142-172032798697" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c3c2f3dc-fcea-4f9e-a172-b98e09434852" name="ExamInstance" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="137b2a07-9208-471e-9e96-ed3ab093e68f" />
+        <ownedAttributesInternal>
+          <property Id="71188d8e-b978-4b8f-8cba-2d01dfaf2195" name="instanceID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2fa21df0-aa4b-42fb-bede-662a78b8c912" />
+          </property>
+          <property Id="9e3456bb-b76a-45a9-a3eb-63ace4754cb3" name="grade" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="40d9de8f-7626-4f4a-a61e-806b26c7ac63" />
+          </property>
+          <property Id="82c1be04-d6e5-4fe6-b5cd-6d72ae0aa9b5" name="reason" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b5a4f08b-a965-4e61-858d-1ae7fbddee96" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="672167c1-7b26-454c-be9c-67632a1d86c6" name="recordPostpone" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2098467f-87ba-4097-a4e6-f86efa9d6cdb" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="48742683-f198-439b-ad8d-4ad29099bdb0" direction="In" isUnique="false">
+                  <elementDefinition Id="8fb9f008-666c-4c12-b2e7-a298ee9adea2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="97f3d6cd-51d2-4c52-be89-cb9389cccc9c" LastKnownName="PostponeEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="3cc286e2-797c-4477-9c1b-ee5de26ccc18" name="recordDNA" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7545768f-66c6-469b-8225-b9e3478ab821" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5b4655e2-adc9-40bf-89e4-83bdb3d55319" direction="In" isUnique="false">
+                  <elementDefinition Id="ef0277f0-6697-4e49-942b-4b444382db53" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ffa7d538-4970-40ea-af13-9162b2fa0157" LastKnownName="DnaEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="464e7c4a-05ba-4044-9820-328848a1b675" name="recordFail" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1a8a4c2d-8e93-4e0d-8ec2-ef72517fc868" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f8181f93-92df-40bb-b578-dfe697df5715" direction="In" isUnique="false">
+                  <elementDefinition Id="6b742552-c8b8-4b6e-8b5a-65f65c36c094" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="882ddacc-aa4b-4e0d-86c8-765ad75ca4c4" LastKnownName="FailEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="aeaaf01a-5176-41a4-b001-f0416caaad98" name="recordNotExamined" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5ef171fe-b6b6-43f8-8a3b-1defab8a1513" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a00a0fdf-333d-48b5-8c2d-9d79349acd38" direction="In" isUnique="false">
+                  <elementDefinition Id="26cc7759-5d3d-4211-a2ea-99fbd1847cb6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3808db39-5b08-4e0e-990a-38f386b6dfbb" LastKnownName="NotExaminedEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c979efc3-fb98-4084-b255-11193959f851" name="recordPass" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6ee36e31-285f-4a34-b283-6eb4d25e4b59" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cc93911c-3804-4332-8d11-f1e0653e3c8b" direction="In" isUnique="false">
+                  <elementDefinition Id="ca30ca0c-8a47-4a47-ba8c-bc3bf8502e5e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9b3babce-4dea-4d02-9726-513732a7d2db" LastKnownName="PassEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c77f806c-6f11-43ab-a38c-5d8a11678e50" name="PostponeEvent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="cf2a5672-c35f-4a7e-941d-63f4bad34c46" />
+        <generalsInternal>
+          <generalization Id="c6421907-46cf-46fc-9efa-8513b4ec1451" isSubstitutable="false">
+            <classMoniker Id="137f1d00-ef1f-4d5c-b85f-9454b3c0b1b8" LastKnownName="ExaminationEvent" />
+            <elementDefinition Id="772d317b-1d4a-49ef-bc89-23c994c73950" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="88c17d4f-dd7e-4f96-9e8a-8ae304f1499a" name="process" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6bc0a4ca-1482-4b74-86ee-4c7821ce7ef4" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="272a6273-05c0-4780-a037-5b928403dd26" name="DnaEvent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0b482155-35b0-4f2b-ba44-d06ee3b8a2fe" />
+        <generalsInternal>
+          <generalization Id="86af6db6-4c2d-4839-996b-c7679f62216d" isSubstitutable="false">
+            <classMoniker Id="137f1d00-ef1f-4d5c-b85f-9454b3c0b1b8" LastKnownName="ExaminationEvent" />
+            <elementDefinition Id="7ea39c42-b207-405f-94ef-9f8ae2619a19" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="0d756aed-9c64-41e3-b93a-c231dac054fd" name="proces" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c6e986a3-7c65-4bc8-b36b-57ea2d8950a9" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1115a8f2-4bde-400f-8054-f0d31d2b2a3b" name="NotExaminedEvent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9df566e4-1288-4cfe-b5ec-d8921cbbceb5" />
+        <generalsInternal>
+          <generalization Id="9d69cbff-be2f-464c-8bb1-9a248aae6ad0" isSubstitutable="false">
+            <classMoniker Id="137f1d00-ef1f-4d5c-b85f-9454b3c0b1b8" LastKnownName="ExaminationEvent" />
+            <elementDefinition Id="5f768158-4eac-4e13-8e9a-ddf9d10f7ae8" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="bc68ea68-2ce8-4530-9620-5f1187b9499e" name="reason" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="13d5274c-93fe-4344-8b52-fe6039d6ef69" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="934f1135-bdd3-44da-935b-28496f8e4ec7" name="process" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c74226ad-3419-4397-8411-8b0844920081" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="4bdda3d9-9fec-45c5-b38a-8293433fe822" name="ExaminationEvent" isAbstract="false" isLeaf="false" cachedFullName="ExaminationEvent">
+        <elementDefinition Id="3ff2a60e-1879-4668-9c53-16f1587bd76d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0e7829be-a295-4c71-b4fc-88a61e8285d2" name="ExaminationEventProcessor" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0cb19761-09e4-467b-a91f-b0d19c0f010d" />
+        <ownedAttributesInternal>
+          <property Id="1a034097-472c-4529-b278-9858ca19100a" name="log" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a5dfad37-7a91-48fe-b0ca-3cd7379986f7" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="6488d026-28c7-4b7c-b667-f6262ba4e8d0" name="process" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="faf30bba-cea3-4c25-b240-704c0ba520ac" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a8077b62-f86d-4f20-8855-a0049c1eed89" direction="In" isUnique="false">
+                  <elementDefinition Id="195d32cc-ae77-474f-9dfb-df57d4cda4f3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4bdda3d9-9fec-45c5-b38a-8293433fe822" LastKnownName="ExaminationEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="ffa7d538-4970-40ea-af13-9162b2fa0157" name="DnaEvent" isAbstract="false" isLeaf="false" cachedFullName="DnaEvent">
+        <elementDefinition Id="828f3c3b-448d-4322-8945-13f2db35c4ef" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="882ddacc-aa4b-4e0d-86c8-765ad75ca4c4" name="FailEvent" isAbstract="false" isLeaf="false" cachedFullName="FailEvent">
+        <elementDefinition Id="201aa9e3-825a-4fa7-ba3e-817e127082bf" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3808db39-5b08-4e0e-990a-38f386b6dfbb" name="NotExaminedEvent" isAbstract="false" isLeaf="false" cachedFullName="NotExaminedEvent">
+        <elementDefinition Id="b24f3b0c-c852-42d4-83ca-7a8e61fdd920" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="9b3babce-4dea-4d02-9726-513732a7d2db" name="PassEvent" isAbstract="false" isLeaf="false" cachedFullName="PassEvent">
+        <elementDefinition Id="2ff86ac2-b844-46b6-8e36-09a299cc9d97" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="97f3d6cd-51d2-4c52-be89-cb9389cccc9c" name="PostponeEvent" isAbstract="false" isLeaf="false" cachedFullName="PostponeEvent">
+        <elementDefinition Id="0a160a15-547a-4cd3-97c3-b5e917b97c46" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="5b2c9202-6155-4bdf-9fe6-7b0361dbedef" name="Exams">
+    <elementDefinition Id="15ed21e9-d512-47c5-a116-c3ae831b4a1a" />
+  </package>
+</logicalClassDesignerModel>

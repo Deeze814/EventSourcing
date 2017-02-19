@@ -3,6 +3,27 @@
   dslVersion="1.0.0.0"
   Id="15ed21e9-d512-47c5-a116-c3ae831b4a1a"
   name="Exams" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="7509f6ed-ec29-4a28-8948-db9d49e252c1">
+      <body>PassEvent.process()
+{
+  ExamResult.recordPass(this);
+}</body>
+    </comment>
+    <comment
+      Id="de853a63-b750-4ead-9ced-78a23405ef2f">
+      <body>ExamResult.recordPass(PassEvent e)
+{
+   grade = e.grade;
+   
+}</body>
+    </comment>
+    <comment
+      Id="1ddec704-679b-436d-95ac-d2163333d2d8">
+      <body>https://martinfowler.com/eaaDev/EventSourcing.html</body>
+    </comment>
+  </ownedCommentsInternal>
   <profileInstances>
     <packageHasProfileInstances
       Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
@@ -17,28 +38,67 @@
         name="StandardProfileL3" />
     </packageHasProfileInstances>
   </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="34f264c5-3db8-45ef-a9b2-7289dd9136e8"
+        LastKnownName="Model"
+        LastKnownLocation="Package_1309.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="21e999f5-fa10-4fb5-b65f-88bf3ebb6f1e"
+        name="instanceID" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="3ff2a60e-1879-4668-9c53-16f1587bd76d"
+        name="ExaminationEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="828f3c3b-448d-4322-8945-13f2db35c4ef"
+        name="DnaEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="201aa9e3-825a-4fa7-ba3e-817e127082bf"
+        name="FailEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b24f3b0c-c852-42d4-83ca-7a8e61fdd920"
+        name="NotExaminedEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="2ff86ac2-b844-46b6-8e36-09a299cc9d97"
+        name="PassEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="0a160a15-547a-4cd3-97c3-b5e917b97c46"
+        name="PostponeEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
     name="Integer"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
     name="Boolean"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
     name="String"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
     name="UnlimitedNatural"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
 </modelStoreModel>
